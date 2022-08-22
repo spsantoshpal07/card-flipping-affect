@@ -1,3 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap');
+
+
+:root {
+    /* Font */
+    --default-font: 'Poppins', sans-serif;
+
+    /* Background Color */
+    --background-color-white: #fff;
+    --background-color-light-grey: #f7f7f7;
+    --background-color-light-green: #7ed56f;
+    --background-color-medium-green: #55c57a;
+    --background-color-dark-green: #28b485;
+
+    /* Font Color */
+    --light-color: #fff;
+    --light-color-alt: #afb6cd;
+    --dark-color: rgba(0, 0, 0, .6);
+    --dark-color-alt: #3d3d3d;
+
+    /* Linear Gradient */
+    --linear-gradient-bottom-right: linear-gradient(to bottom right, #7ed56fc5, #28b485cc);
+    --linear-gradient-to-right: linear-gradient(to right, var(--background-color-light-green), var(--background-color-dark-green));
+
+    /* Card Gradient */
+    --card-gradient-orange: linear-gradient(to right bottom, #ffb900, #ff7730);
+    --card-gradient-blue: linear-gradient(to right bottom, #2998ff, #5643fa);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
 .container {
     position: relative;
     height: 100vh;
@@ -6,46 +45,144 @@
 
 .card-container {
     position: absolute;
-    top: 50%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.text-center {
+    text-align: center;
 }
 
 .card-content {
     border-radius: 3px;
     perspective: 150rem;
-    height: 20rem;
-    width: 15rem;
+    width: 30rem;
+    height: 10rem;
 
     position: relative;
 }
 
 .card {
-    width: 100%;
-    height: 20rem;
-    backface-visibility: hidden;
-    transition: all .8s ease;
-
+    height: 52rem;
+    border-radius: 3px;
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    transition: all .8s ease;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
 
-    box-shadow: 0 2rem 4rem rgba(0, 0, 0, .2);
+    /* This is done because while applying background image
+    on card front image gets placed on top, so we do hide
+    the overflow */
+    overflow: hidden;
 }
 
 .card-front {
-    background-color: rgba(0, 128, 0, 0.9);
+    background-color: var(--background-color-white)
 }
 
 .card-back {
-    background-image: linear-gradient(to right bottom, rgba(255, 0, 0, 0.9), rgb(255, 68, 0));
     transform: rotateY(180deg);
 }
 
-.card-content:hover .card-front {
+/* .tour-card:hover {
+    transform: rotateY(180deg);
+} */
+
+.card-content:hover .card-front{
     transform: rotateY(-180deg);
 }
 
-.card-content:hover .card-back {
+.card-content:hover .card-back{
     transform: rotateY(0deg);
+}
+
+.card-back-1 {
+    background-image: var(--card-gradient-orange);
+}
+
+.tour-image {
+    height: 23rem;
+    background-size: cover;
+    background-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.tour-image-1 {
+    background-image: var(--card-gradient-orange), url(./nat-5.jpg);
+}
+
+.tour-card-title {
+    color: var(--light-color);
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-align: right;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.tour-title {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+}
+
+.tour-one-title {
+    background-image: linear-gradient(to right bottom, rgba(255, 187, 0, 0.85), rgb(255, 119, 48, 0.85));
+}
+
+.tour-detail {
+    margin-top: 3rem;
+}
+
+.tour-detail ul {
+    list-style: none;
+    width: 75%;
+    margin: 0 auto;
+    font-size: 1.5rem;
+}
+
+.tour-detail ul li {
+    padding: 1rem;
+}
+
+.tour-detail ul li:not(:last-child) {
+    border-bottom: 1px solid #eee;
+}
+
+.tour-book {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tour-price {
+    color: var(--light-color);
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
+.tour-price .only-text {
+    font-size: 1.5rem;
+}
+
+.tour-price .price {
+    font-size: 6rem;
+}
+
+.tour-book-btn {
+    padding: 1.4rem 2.6rem;
+    margin-top: 9rem;
 }
